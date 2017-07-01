@@ -37,8 +37,8 @@ typedef uint64_t         tick_t;
 #endif
 
 //! Deltatime type (float or double)
-//typedef float            deltatime_t;
-typedef double           deltatime_t;
+//typedef float            sectime_t;
+typedef double           sectime_t;
 
 
 /*! Initialize timer library */
@@ -55,7 +55,7 @@ TIMER_API tick_t         timer_current( void );
 /*! Get elapsed time since given timestamp
     \param t             Timestamp
     \return              Number of seconds elapsed */
-TIMER_API deltatime_t    timer_elapsed( const tick_t t );
+TIMER_API sectime_t    timer_elapsed( const tick_t t );
 
 /*! Get elapsed ticks since given timestamp
     \param t             Timestamp
@@ -69,9 +69,12 @@ TIMER_API tick_t         timer_ticks_per_second( void );
 /*! Get ticks as seconds (effectively calculating ticks/timer_ticks_per_second())
 	\param dt            Deltatime in ticks
     \return              Deltatime in seconds */
-TIMER_API deltatime_t    timer_ticks_to_seconds( const tick_t dt );
+TIMER_API sectime_t      timer_ticks_to_seconds( const tick_t dt );
 
 /*! Get system time, in milliseconds since the epoch (UNIX time)
     \return  Current timestamp, in milliseconds */
-TIMER_API tick_t         timer_system( void );
+TIMER_API tick_t         timer_system_stamp( void );
 
+/*! Get system time, in milliseconds since the epoch (UNIX time)
+    \return  Current timestamp, in milliseconds */
+TIMER_API sectime_t      timer_system_stamp_sec( void );

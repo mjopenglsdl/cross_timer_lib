@@ -97,9 +97,9 @@ tick_t timer_ticks_per_second( void )
 }
 
 
-deltatime_t timer_elapsed( const tick_t t )
+sectime_t timer_elapsed( const tick_t t )
 {
-	return (deltatime_t)( (double)timer_elapsed_ticks( t ) * _timerlib_oofreq );
+	return (sectime_t)( (double)timer_elapsed_ticks( t ) * _timerlib_oofreq );
 }
 
 
@@ -134,9 +134,9 @@ tick_t timer_elapsed_ticks( const tick_t t )
 }
 
 
-deltatime_t timer_ticks_to_seconds( const tick_t dt )
+sectime_t timer_ticks_to_seconds( const tick_t dt )
 {
-	return (deltatime_t)( (double)dt * _timerlib_oofreq );
+	return (sectime_t)( (double)dt * _timerlib_oofreq );
 }
 
 
@@ -150,7 +150,7 @@ struct __timeb64 {
 _CRTIMP errno_t __cdecl _ftime64_s(_Out_ struct __timeb64 * _Time);
 #endif
 
-tick_t timer_system( void )
+tick_t timer_system_stamp( void )
 {
 #if TIMER_PLATFORM_WINDOWS
 
@@ -171,4 +171,10 @@ tick_t timer_system( void )
 	return ( (uint64_t)ts.tv_sec * 1000ULL ) + ( ts.tv_nsec / 1000000ULL );
 
 #endif
+}
+
+
+sectime_t timer_system_stamp_sec(void)
+{
+    return sectime_t(timer_system_stamp)/1000;
 }
