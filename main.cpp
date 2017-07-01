@@ -3,6 +3,7 @@
 
 #include <unistd.h>
 
+#include <stdio.h>
 #include <iostream>
 using namespace std;
 
@@ -10,7 +11,7 @@ using namespace std;
 
 int main( int argc, char** argv )
 {
-	tick_t start;
+	sectime_t start;
 
 
 ////////
@@ -28,10 +29,10 @@ int main( int argc, char** argv )
 /// UNIX TIME
 	start = timer_system_stamp_sec();
 
-    cout<<"start: "<<start<<endl;
+    printf("start: %.3f\n", start);
     sleep(1);
-    tick_t then = timer_system_stamp_sec();
-    cout<<"then: "<<then <<endl;
+    sectime_t then = timer_system_stamp_sec();
+    printf("then: %.3f\n", then);
     cout<<"timer_elapsed: "<<(then-start)<<endl;
 
     
