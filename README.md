@@ -1,4 +1,4 @@
-# timer_lib  -  v0.9  -  Public Domain
+# cross_timer_lib  -  v0.9  -  Public Domain
 
 ## Modifications
 There is a need that I have to use some sort of cross-platform timestamp output like **ros::Time().toSec()** did.
