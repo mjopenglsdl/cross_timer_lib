@@ -75,6 +75,6 @@ TIMER_API sectime_t      timer_ticks_to_seconds( const tick_t dt );
     \return  Current timestamp, in milliseconds */
 TIMER_API tick_t         timer_system_stamp( void );
 
-/*! Get system time, in milliseconds since the epoch (UNIX time)
-    \return  Current timestamp, in milliseconds */
+/*! Get system time, in seconds since the epoch (UNIX time)
+    \return  Current timestamp, in seconds */
 TIMER_API sectime_t      timer_system_stamp_sec( void );

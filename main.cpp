@@ -26,13 +26,13 @@ int main( int argc, char** argv )
     
     
 /// UNIX TIME
-	start = timer_system();
+	start = timer_system_stamp_sec();
 
     cout<<"start: "<<start<<endl;
     sleep(1);
-    tick_t then = timer_system();
+    tick_t then = timer_system_stamp_sec();
     cout<<"then: "<<then <<endl;
-    cout<<"timer_elapsed: "<<(then-start)/1000<<endl;
+    cout<<"timer_elapsed: "<<(then-start)<<endl;
 
     
 	timer_lib_shutdown();

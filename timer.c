@@ -176,5 +176,5 @@ tick_t timer_system_stamp( void )
 
 sectime_t timer_system_stamp_sec(void)
 {
-    return sectime_t(timer_system_stamp)/1000;
+    return ((sectime_t)timer_system_stamp() ) /1000;
 }
