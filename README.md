@@ -1,4 +1,18 @@
-timer_lib  -  v0.8  -  Public Domain  -  2011 Mattias Jansson / Rampant Pixels
+# timer_lib  -  v0.9  -  Public Domain
+
+## Modifications
+There is a need that I have to use some sort of cross-platform timestamp output like **ros::Time().toSec()** did.
+The origin code was done using UNIX makefile and VS project.
+I did some modification to the original project and build it using **cmake**. The output(second format) looks like:
+
+
+    time: 1498881655.179
+    time: 1498881656.179
+
+
+
+## Original Copyright
+2011 Mattias Jansson / Rampant Pixels
 
 This library provides a cross-platform interface to measure
 elapsed time with (at least) millisecond accuracy. The latest
@@ -13,25 +27,3 @@ For a complete cross-platform application framework, look at
 the foundation library available at
 
 https://github.com/rampantpixels/foundation_lib
-
-
-VERSION HISTORY
-
- 0.1  (2011-03-15)  Initial release
- 0.2  (2011-03-20)  Removed timer type (always high precision)
-                    Fixed timer_ticks_per_second declaration
-                    Added test application
- 0.3  (2011-03-22)  Removed unused error checks in POSIX code
-                    Made timeGetTime fallback optional in Windows code (define USE_FALLBACK to 1)
-                    Fixed check of QPC weirdness (signed issue)
- 0.4  (2011-03-23)  timer_lib_initialize() returns non-zero if failed (no high precision timer available)
-                    Changed POSIX path to use CLOCK_MONOTONIC
-                    POSIX timer_system use CLOCK_REALTIME for actual timestamp
-                    Addded Mach-O path for MacOS X
-                    Changed POSIX path to use nanosecond frequency as returned by clock_gettime
- 0.5  (2012-10-01)  Merged (cleaned up) MacOSX build fixes from Nicolas Léveillé
- 0.6  (2013-01-11)  Simplified API, only using tick_t type as timestamp and removing custom timer struct
-                    Removed old legacy fallback code for Windows platform
- 0.7  (2013-01-11)  Using platform_lib for platform and compiler abstraction
- 0.8  (2013-07-30)  Made library standalone with no deps (not using deprecated platform_lib)
-
